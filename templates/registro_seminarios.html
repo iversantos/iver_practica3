@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro en Seminarios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: red; /* Título en rojo */
+        }
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 40%;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center; /* Centrar texto de los encabezados */
+        }
+        .subtitle {
+            color: blue; /* Subtítulos en azul */
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registro en Seminarios</h1>
+
+    <form method="POST">
+
+        <table>
+            <tr>
+                <th colspan="2" class="subtitle">Datos Personales</th>
+            </tr>
+            <tr>
+                <td><label for="fecha">Fecha:</label></td>
+                <td><input type="date" id="fecha" name="fecha" required></td>
+            </tr>
+            <tr>
+                <td><label for="nombre">Nombre:</label></td>
+                <td><input type="text" id="nombre" name="nombre" required></td>
+            </tr>
+            <tr>
+                <td><label for="apellido">Apellido:</label></td>
+                <td><input type="text" id="apellido" name="apellido" required></td>
+            </tr>
+            <tr>
+                <td><label for="turno">Turno:</label></td>
+                <td>
+                    <input type="radio" id="mañana" name="turno" value="Mañana" required>
+                    <label for="mañana">Mañana</label>
+                    <input type="radio" id="tarde" name="turno" value="Tarde">
+                    <label for="tarde">Tarde</label>
+                    <input type="radio" id="noche" name="turno" value="Noche">
+                    <label for="noche">Noche</label>
+                </td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th colspan="2" class="subtitle">Seminarios Disponibles</th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="ia" name="seminarios" value="Inteligencia Artificial">
+                    <label for="ia">Inteligencia Artificial</label><br>
+                    <input type="checkbox" id="ml" name="seminarios" value="Machine Learning">
+                    <label for="ml">Machine Learning</label><br>
+                    <input type="checkbox" id="simulacion" name="seminarios" value="Simulación con Arena">
+                    <label for="simulacion">Simulación con Arena</label><br>
+                    <input type="checkbox" id="robotica" name="seminarios" value="Robótica Educativa">
+                    <label for="robotica">Robótica Educativa</label><br>
+                </td>
+            </tr>
+        </table>
+
+        <button type="submit">Enviar registro</button>
+    </form>
+</body>
+</html>

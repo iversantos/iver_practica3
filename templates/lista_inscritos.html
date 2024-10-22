@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Inscritos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: red; /* Título en rojo */
+        }
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 80%;
+            background-color: purple; /* Fondo morado para la tabla */
+            color: white; /* Color de texto en blanco */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #6a1b9a; /* Morado más oscuro para encabezados */
+        }
+        a {
+            color: white; /* Color de los enlaces en blanco por defecto */
+            text-decoration: none; /* Sin subrayado */
+        }
+        a:hover {
+            text-decoration: underline; /* Subrayado al pasar el ratón */
+        }
+        .action-link {
+            color: cyan; /* Color celeste para las acciones */
+        }
+    </style>
+</head>
+<body>
+    <h1>Listado de Inscritos</h1>
+    <div style="text-align: center; margin-bottom: 20px;">
+        <a href="{{ url_for('registro_seminarios') }}" style="display: inline-block; background-color: #2196F3; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px;">Nuevo</a>
+    </div>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Fecha</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Turno</th>
+            <th>Seminarios</th>
+            <th>Acciones</th>
+        </tr>
+        {% for index in range(inscritos|length) %}
+        <tr>
+            <td>{{ index + 1 }}</td> 
+            <td>{{ inscritos[index]['fecha'] }}</td>
+            <td>{{ inscritos[index]['nombre'] }}</td>
+            <td>{{ inscritos[index]['apellido'] }}</td>
+            <td>{{ inscritos[index]['turno'] }}</td>
+            <td>{{ ", ".join(inscritos[index]['seminarios']) }}</td>
+            <td>
+                <a class="action-link" href="{{ url_for('editar_inscrito', index=index) }}">Editar</a> | 
+                <a class="action-link" href="{{ url_for('eliminar_inscrito', index=index) }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
